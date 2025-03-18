@@ -41,7 +41,7 @@ console.log("O produto dos valores é:", produto);
 ```
 Qual das seguintes alternativas melhor descreve o que o código faz?
 
-A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console.
+A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console.✅
 
 B) O código avalia a expressão booleana, imprime `false`, calcula o produto dos números na lista e imprime o resultado no console.
 
@@ -103,7 +103,7 @@ function analisarCredito2() {
 ```
 Se ambas as funções forem executadas com os valores fornecidos, qual será a saída exibida no console?
 
-A) Ambas as funções exibirão: 'Seu crédito foi aprovado. Saldo disponível: 400.'
+A) Ambas as funções exibirão: 'Seu crédito foi aprovado. Saldo disponível: 400.'✅
 
 B) analisarCredito1() exibirá: 'Seu crédito foi negado. Saldo disponível: -600.', enquanto analisarCredito2() exibirá: 'Seu crédito foi negado. Saldo disponível: -200.'
 
@@ -129,7 +129,7 @@ Qual das seguintes alternativas melhor descreve o comportamento do código?
 
 A) O código verifica se a idade indica um adulto ou um idoso e exibe a mensagem correspondente.
 
-B) O código verifica se a idade pertence à faixa adulta. Se for, exibe "Você é um adulto!". Caso contrário, verifica se é menor de idade e exibe "Você é menor de idade!". Se nenhuma das condições anteriores for verdadeira, exibe "Você está na melhor idade!".
+B) O código verifica se a idade pertence à faixa adulta. Se for, exibe "Você é um adulto!". Caso contrário, verifica se é menor de idade e exibe "Você é menor de idade!". Se nenhuma das condições anteriores for verdadeira, exibe "Você está na melhor idade!".✅
 
 C) O código verifica se a idade está entre 18 e 60 anos e, se for, imprime "Você é um adulto!". Se não estiver nesse intervalo, imprime "Você está na melhor idade!".
 
@@ -192,7 +192,7 @@ Dispositivo 3 ligado. Energia restante: 400
 
 Dispositivo 4 não pode ser ligado. Energia insuficiente.
 
-D)
+D)✅
 Dispositivo 1 ligado. Energia restante: 900
 
 Dispositivo 2 ligado. Energia restante: 300
@@ -211,7 +211,7 @@ Escolha a opção que melhor descreve seu propósito:
 
 A) O método update() é responsável por carregar os assets do jogo antes da cena ser exibida.
 
-B) O método update() é chamado continuamente a cada quadro (frame) do jogo, sendo usado para atualizar a lógica, movimentação e interações dos objetos na cena.
+B) O método update() é chamado continuamente a cada quadro (frame) do jogo, sendo usado para atualizar a lógica, movimentação e interações dos objetos na cena.✅
 
 C) O método update() renderiza todos os sprites na tela e garante que a física do jogo seja processada corretamente.
 
@@ -222,7 +222,7 @@ ______
 
 Escolha a opção que responde corretamente:
 
-A) Simular física avançada, incluindo corpos rígidos, colisões complexas e interação entre objetos com gravidade e forças.
+A) Simular física avançada, incluindo corpos rígidos, colisões complexas e interação entre objetos com gravidade e forças.✅
 
 B) Gerenciar eventos de entrada do usuário, como cliques e toques na tela, permitindo movimentação de personagens.
 
@@ -243,6 +243,17 @@ Pedidos abaixo de R$50,00 → "Frete não disponível!"
 Pedidos entre R$50,00 e R$199,99 (inclusive) → "Frete com custo adicional!"
 
 Pedidos de R$200,00 ou mais → "Frete grátis!"
+
+let preçoFinal;
+if(preçoFinal<50){
+    console.log(`O preço foi de ${preçoFinal}. Frete indisponivel!.`);
+}
+else if (preçoFinal>50 && preçoFinal<199.99){
+    console.log(`O preço foi de ${preçoFinal}. Frete com custo adicional!.`);
+}
+else{
+    console.log(`O preço foi de ${preçoFinal}. Frete grátis!`);
+}
 ```
 Implemente um pseudocódigo que receba o valor total da compra e exiba a classificação correta do frete para o cliente.
 ______
@@ -250,15 +261,67 @@ ______
 **8)** Considere a implementação da classe base Veiculo em um sistema de modelagem de veículos. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Carro e Moto, que herdam da classe Veiculo, adicionando atributos específicos e métodos para calcular o consumo de combustível de um carro e de uma moto, respectivamente.
 
 ```
-Classe Veiculo:
-Atributos:
+class Veiculo{
+    constructor(modelo, ano, tanque, kml,km){//cria os atributos que serão usados na classe
+        this.modelo = modelo;
+        this.ano = ano;
+        this.tanque = tanque;
+        this.kml = kml;//km/L
+        this.km = km;
+        
+    }
 
-modelo
-ano
-Método Construtor(modelo, ano):
+    calcularConsumo(){
 
-Define os valores dos atributos modelo e ano com os valores passados como parâmetro.
-Método CalcularConsumo():
+    }
+}
+
+class Carro extends Veiculo{
+    constructor(modelo, ano, tanque, kml,km){
+        super(modelo, ano, tanque, kml, km);//importa os atributos da classe pai (veiculo)
+        this.resto = this.tanque - this.kml/this.km;//variavel para o resto de combustivel
+    }
+    
+    calcularConsumo(){//add o método calcular consumo
+
+        console.log(`O consumo nessa viagem foi de ${this.kml/this.km} litros `);
+        if(this.tanque>0){
+            console.log(`Ainda restam ${this.resto} litros de gasolina`);
+        }
+        else{
+            console.log(`Faltaram ${this.resto} litros de gasolina. `);
+        }
+    }
+
+    
+}
+
+class Moto extends Veiculo{
+    constructor(modelo, ano, tanque, kml, km){
+        super(modelo, ano, tanque, kml, km);//importa os atributos da classe pai (veiculo)
+        this.resto = this.tanque - this.kml/this.km;//variavel para o resto de combustivel
+    }
+    
+    calcularConsumo(){//add o método calcular consumo
+        //mostra o consumo no console
+        console.log(`O consumo nessa viagem foi de ${this.kml/this.km} litros de gasolina`);
+        //se houve sobra de gasolina no tanque ele mostra quanto sobra, senão mostra o quanto faltou
+        if(this.tanque>=0){
+            console.log(`Ainda restam ${this.resto} litros de gasolina`);
+        }
+        else{
+            console.log(`Faltaram ${this.resto} litros de gasolina. `);
+        }
+    }
+}
+
+var versa = new Carro('versa', 2009, 100, 7, 10)
+
+versa.calcularConsumo()
+
+var hornet = new Moto('hornet', 2018, 70, 15, 10)
+
+hornet.calcularConsumo()
 ```
 Implementação genérica para cálculo de consumo, a ser sobrescrita pelas subclasses.
 Agora, implemente as classes Carro e Moto, garantindo que ambas herdem de Veiculo e possuam métodos específicos para calcular o consumo de combustível com base na quilometragem e eficiência do veículo.
