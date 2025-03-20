@@ -342,17 +342,19 @@ class Foguete{
         this.velocidade = 0; // velocidade é sempre 0 pois o objetivo é pousar o foguete
         this.desaceleracao = desaceleracao;
         this.velocidade0  = velocidade0;
-        this.tempo = 0; // Initialize tempo in the constructor
+        this.tempo ; 
     }
 
     calcularTempo(){
-        this.tempo = (this.velocidade - this.velocidade0) / this.desaceleracao
+        //Math.floor() joga o número quebrado para o número inteiro mais perto(sempre arredonda para baixo)
+        //Math.abs() retorna o numero porem positivo(se for nagativo)
+        this.tempo = Math.floor(Math.abs((this.velocidade - this.velocidade0) / this.desaceleracao))
 
         if(this.tempo > 900){ // numero pesquisado para saber o tempo aproximado para o pouso na lua
-            console.log(`O tempo foi de ${Math.floor(Math.abs(this.tempo))} segundos. Alerta, possivel desvio orbital!.`);//Math.abs() retorna o numero porem positivo(se for nagativo)
-        }//Math.floor() joga o número quebrado para o número inteiro mais perto(sempre arredonda para baixo)
+            console.log(`O tempo foi de ${this.tempo} segundos. Alerta, possivel desvio orbital!.`);
+        }
         else{
-            console.log(`O tempo foi de ${Math.floor(Math.abs(this.tempo))} segundos. Sem desvio orbital!`);
+            console.log(`O tempo foi de ${this.tempo} segundos. Sem desvio orbital!`);
         }
         if(this.desaceleracao > 4){ // numero pesquisado para saber a taxa média de desaceleração da módulo da nave
             console.log(`A desaceleração foi de ${this.desaceleracao}m/s2. Alerta, pouso instável!.`);
@@ -366,7 +368,7 @@ class Foguete{
 let foguete1 = new Foguete(2.5, 1800);
 foguete1.calcularTempo();
 
-let foguete2 = new Foguete( 3 ,1000)
+let foguete2 = new Foguete( 3 ,3000)
 foguete2.calcularTempo()
 ```
 Seu programa deve determinar quanto tempo será necessário para que a sonda atinja uma velocidade segura de pouso, sem ultrapassar os limites estabelecidos.
