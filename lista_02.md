@@ -236,7 +236,7 @@ ______
 
 **7)** Uma loja online deseja implementar um sistema de classificação de pedidos com base no valor total da compra. O sistema deve determinar a categoria de um pedido com as seguintes regras:
 
-```
+```javascript
 
 Pedidos abaixo de R$50,00 → "Frete não disponível!"
 
@@ -260,7 +260,7 @@ ______
 
 **8)** Considere a implementação da classe base Veiculo em um sistema de modelagem de veículos. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Carro e Moto, que herdam da classe Veiculo, adicionando atributos específicos e métodos para calcular o consumo de combustível de um carro e de uma moto, respectivamente.
 
-```
+```javascript
 class Veiculo{
     constructor(modelo, ano, tanque, kml,km){//cria os atributos que serão usados na classe
         this.modelo = modelo;
@@ -334,7 +334,7 @@ Entretanto, a sonda não pode ultrapassar um tempo máximo de descida para evita
 Implemente a lógica dessa simulação em pseudocódigo, considerando a seguinte equação para atualização da velocidade:
 
 Considere a fórumla de atualização velocidade:
-```
+```javascript
     velocidade = velocidadeInicial - desaceleracao * tempo
 
 class Foguete{
